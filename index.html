@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>S.A Evolution Proteção Veicular | Curitiba - Carros até R$50 mil</title>
+  <meta name="description" content="Proteção veicular completa pra carros de até R$50 mil em Curitiba. Cobertura contra roubo, colisão, incêndio, assistência 24h e guincho nacional. Cotação grátis pelo WhatsApp.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --red:#D90416;--red-dark:#B80012;--red-light:#FF1A2E;
+      --navy:#0D1B2A;--navy-light:#1B2D44;
+      --white:#FFFFFF;--gray-50:#F8FAFB;--gray-100:#F1F4F8;
+      --gray-200:#E2E8F0;--gray-400:#94A3B8;--gray-600:#64748B;--gray-800:#1E293B;
+      --shadow-sm:0 1px 3px rgba(13,27,42,.06);--shadow-md:0 4px 16px rgba(13,27,42,.08);
+      --shadow-lg:0 8px 32px rgba(13,27,42,.12);--shadow-xl:0 16px 48px rgba(13,27,42,.16);
+      --shadow-red:0 8px 32px rgba(217,4,22,.25);
+      --r-sm:12px;--r-md:16px;--r-lg:24px;--r-xl:32px;
+      --ease:0.3s cubic-bezier(.4,0,.2,1)
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:'Montserrat',sans-serif;color:var(--gray-800);background:var(--white);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+    .container{width:100%;max-width:1200px;margin:0 auto;padding:0 24px}
+    section{padding:80px 0}
+
+    /* NAV */
+    .nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:8px 0;transition:var(--ease);background:rgba(255,255,255,.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,.06)}
+    .nav.scrolled{box-shadow:0 2px 16px rgba(0,0,0,.08);background:rgba(255,255,255,.98)}
+    .nav .container{display:flex;align-items:center;justify-content:space-between}
+    .nav-logo img{height:112px;width:auto;filter:brightness(0) saturate(100%) invert(11%) sepia(93%) saturate(5765%) hue-rotate(352deg) brightness(90%) contrast(107%)}
+    .nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+    .nav-links a{color:var(--gray-600);text-decoration:none;font-size:14px;font-weight:500;transition:var(--ease)}
+    .nav-links a:hover{color:var(--navy)}
+    .nav-cta{background:var(--red)!important;color:var(--white)!important;padding:10px 20px;border-radius:50px;font-weight:600;display:inline-flex;align-items:center;gap:8px;transition:var(--ease);cursor:pointer}
+    .nav-cta:hover{background:var(--red-dark)!important;transform:translateY(-1px);box-shadow:var(--shadow-red)}
+    .nav-cta svg{width:16px;height:16px}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+    .hamburger span{width:24px;height:2px;background:var(--navy);transition:var(--ease);border-radius:2px}
+    .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+    .hamburger.active span:nth-child(2){opacity:0}
+    .hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+    /* HERO — split: foto esquerda + conteúdo vermelho direita */
+    .hero{padding:0;background:var(--white)}
+    .hero-split{display:grid;grid-template-columns:1fr 1fr;min-height:600px;margin-top:96px}
+    .hero-photo{position:relative;overflow:hidden}
+    .hero-photo img{width:100%;height:100%;object-fit:cover;display:block}
+    .hero-photo-overlay{position:absolute;inset:0;background:linear-gradient(90deg,transparent 60%,rgba(217,4,22,.15) 100%);pointer-events:none}
+    .hero-content{background:var(--red);padding:56px 48px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+    .hero-content::before{content:'';position:absolute;top:-40%;right:-20%;width:400px;height:400px;background:radial-gradient(circle,rgba(255,255,255,.06) 0%,transparent 70%);border-radius:50%;pointer-events:none}
+    .hero-content::after{content:'';position:absolute;bottom:-30%;left:-10%;width:300px;height:300px;background:radial-gradient(circle,rgba(0,0,0,.08) 0%,transparent 70%);border-radius:50%;pointer-events:none}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);color:var(--white);padding:8px 16px;border-radius:50px;font-size:13px;font-weight:600;margin-bottom:24px;width:fit-content}
+    .hero-badge svg{width:16px;height:16px}
+    .hero h1{font-size:clamp(26px,3.5vw,42px);font-weight:800;color:var(--white);line-height:1.15;margin-bottom:16px;letter-spacing:-.5px;position:relative;z-index:1}
+    .hero h1 span{color:var(--white);opacity:.85}
+    .hero p{font-size:16px;color:rgba(255,255,255,.85);line-height:1.7;margin-bottom:28px;max-width:440px;position:relative;z-index:1}
+    .hero-actions{display:flex;gap:14px;flex-wrap:wrap;position:relative;z-index:1}
+    .hero .btn-primary{background:var(--white);color:var(--red)}
+    .hero .btn-primary:hover{background:var(--gray-50);box-shadow:var(--shadow-lg);transform:translateY(-2px)}
+    .hero .btn-secondary{color:var(--white);border-color:rgba(255,255,255,.4)}
+    .hero .btn-secondary:hover{border-color:var(--white);background:rgba(255,255,255,.1);color:var(--white)}
+    .hero-features{display:flex;gap:16px;margin-top:32px;position:relative;z-index:1}
+    .hero-feat{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:var(--r-sm);padding:14px 16px;text-align:center;flex:1}
+    .hero-feat svg{width:24px;height:24px;color:var(--white);margin-bottom:6px}
+    .hero-feat span{display:block;font-size:11px;font-weight:600;color:rgba(255,255,255,.9);line-height:1.3}
+
+    /* BUTTONS */
+    .btn-primary{display:inline-flex;align-items:center;gap:10px;background:var(--red);color:var(--white);padding:14px 28px;border-radius:50px;font-size:15px;font-weight:700;text-decoration:none;transition:var(--ease);border:none;cursor:pointer;font-family:inherit}
+    .btn-primary:hover{background:var(--red-dark);transform:translateY(-2px);box-shadow:var(--shadow-red)}
+    .btn-primary svg{width:20px;height:20px}
+    .btn-secondary{display:inline-flex;align-items:center;gap:10px;background:transparent;color:var(--navy);padding:14px 28px;border-radius:50px;font-size:15px;font-weight:600;text-decoration:none;border:1.5px solid var(--gray-200);transition:var(--ease);cursor:pointer}
+    .btn-secondary:hover{border-color:var(--red);color:var(--red);background:rgba(217,4,22,.04)}
+
+    /* BRANDS */
+    .brands{padding:32px 0;background:var(--white);border-bottom:1px solid var(--gray-200);overflow:hidden}
+    .brands-label{text-align:center;font-size:12px;font-weight:600;color:var(--gray-400);text-transform:uppercase;letter-spacing:2px;margin-bottom:20px}
+    .marquee-wrap{position:relative;overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+    .marquee-track{display:flex;gap:48px;align-items:center;animation:marquee 40s linear infinite;width:max-content}
+    .marquee-track:hover{animation-play-state:paused}
+    @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+    .brand-logo{flex-shrink:0;height:36px;width:auto;object-fit:contain;opacity:.6;transition:var(--ease);filter:grayscale(20%)}
+    .brand-logo:hover{opacity:1;filter:grayscale(0%);transform:scale(1.1)}
+
+    /* SECTION HEADERS */
+    .section-label{display:inline-flex;align-items:center;gap:8px;background:rgba(217,4,22,.08);color:var(--red);padding:6px 16px;border-radius:50px;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:16px}
+    .section-title{font-size:clamp(24px,4vw,38px);font-weight:800;color:var(--navy);line-height:1.15;margin-bottom:14px;letter-spacing:-.5px}
+    .section-title span{color:var(--red)}
+    .section-subtitle{font-size:16px;color:var(--gray-800);max-width:540px;line-height:1.7}
+    .section-header{text-align:center;margin-bottom:48px}
+    .section-header .section-subtitle{margin:0 auto}
+
+    /* ABOUT */
+    .about{background:var(--gray-50)}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+    .about-photo{border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-lg)}
+    .about-photo img{width:100%;display:block}
+    .about-photo-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+    .about-photo-grid .thumb{border-radius:var(--r-md);overflow:hidden}
+    .about-photo-grid .thumb img{width:100%;display:block;transition:var(--ease)}
+    .about-photo-grid .thumb:hover img{transform:scale(1.03)}
+    .about-content .section-subtitle{margin-bottom:28px}
+    .about-features{display:flex;flex-direction:column;gap:18px}
+    .about-feature{display:flex;gap:14px;align-items:flex-start}
+    .about-feature .check{width:28px;height:28px;min-width:28px;background:rgba(217,4,22,.1);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-top:2px}
+    .about-feature .check svg{width:16px;height:16px;color:var(--red)}
+    .about-feature h4{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:2px}
+    .about-feature p{font-size:14px;color:var(--gray-800);line-height:1.6}
+
+    /* COVERAGES */
+    .coverages{background:var(--gray-50)}
+    .coverages-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .coverage-card{background:var(--white);border:1px solid var(--gray-200);border-radius:var(--r-md);padding:28px;transition:var(--ease);position:relative;overflow:hidden;box-shadow:var(--shadow-sm)}
+    .coverage-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--red);transform:scaleX(0);transition:var(--ease)}
+    .coverage-card:hover{border-color:rgba(217,4,22,.2);box-shadow:var(--shadow-md);transform:translateY(-3px)}
+    .coverage-card:hover::before{transform:scaleX(1)}
+    .coverage-icon{width:44px;height:44px;background:rgba(217,4,22,.08);border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;margin-bottom:14px;transition:var(--ease)}
+    .coverage-card:hover .coverage-icon{background:var(--red)}
+    .coverage-icon svg{width:22px;height:22px;color:var(--red);transition:var(--ease)}
+    .coverage-card:hover .coverage-icon svg{color:var(--white)}
+    .coverage-card h3{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:8px}
+    .coverage-card p{font-size:14px;color:var(--gray-800);line-height:1.6}
+
+    /* DIFFERENTIALS */
+    .differentials{background:var(--navy)}
+    .differentials .section-title{color:var(--white)}
+    .differentials .section-subtitle{color:var(--gray-400)}
+    .differentials .section-label{background:rgba(217,4,22,.15)}
+    .diff-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .diff-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:var(--r-lg);padding:28px 20px;text-align:center;transition:var(--ease)}
+    .diff-card:hover{background:rgba(255,255,255,.08);border-color:rgba(217,4,22,.3);transform:translateY(-3px)}
+    .diff-icon{width:52px;height:52px;background:rgba(217,4,22,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+    .diff-icon svg{width:26px;height:26px;color:var(--red-light)}
+    .diff-card h3{font-size:15px;font-weight:700;color:var(--white);margin-bottom:8px}
+    .diff-card p{font-size:13px;color:var(--gray-400);line-height:1.6}
+
+    /* STEPS */
+    .steps{background:var(--gray-50)}
+    .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .step-card{background:var(--white);border-radius:var(--r-lg);padding:32px 24px;text-align:center;box-shadow:var(--shadow-sm);transition:var(--ease)}
+    .step-card:hover{box-shadow:var(--shadow-md);transform:translateY(-3px)}
+    .step-number{width:52px;height:52px;background:var(--red);color:var(--white);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;margin:0 auto 16px;box-shadow:var(--shadow-red)}
+    .step-card h3{font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px}
+    .step-card p{font-size:14px;color:var(--gray-800);line-height:1.7}
+
+    /* STATS */
+    .stats{background:var(--red);padding:48px 0}
+    .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+    .stat-item h3{font-size:clamp(28px,4vw,42px);font-weight:900;color:var(--white);line-height:1;margin-bottom:4px}
+    .stat-item p{font-size:13px;color:rgba(255,255,255,.8);font-weight:500}
+
+    /* AUDIENCE */
+    .audience-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+    .audience-list{display:flex;flex-direction:column;gap:14px}
+    .audience-item{display:flex;gap:12px;align-items:flex-start;background:var(--gray-50);padding:16px 18px;border-radius:var(--r-sm);border-left:3px solid var(--red);transition:var(--ease)}
+    .audience-item:hover{background:var(--white);box-shadow:var(--shadow-md);transform:translateX(4px)}
+    .audience-item svg{width:20px;height:20px;color:var(--red);flex-shrink:0;margin-top:2px}
+    .audience-item p{font-size:14px;color:var(--gray-800);font-weight:500}
+    .audience-cta{background:var(--navy);border-radius:var(--r-xl);padding:32px;text-align:center;overflow:hidden}
+    .audience-cta-photo{border-radius:var(--r-lg);overflow:hidden;margin-bottom:20px}
+    .audience-cta-photo img{width:100%;display:block}
+    .audience-cta h3{font-size:22px;font-weight:800;color:var(--white);margin-bottom:10px}
+    .audience-cta p{font-size:14px;color:var(--gray-400);margin-bottom:24px;line-height:1.7}
+
+    /* FAQ */
+    .faq{background:var(--gray-50)}
+    .faq-list{max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
+    .faq-item{background:var(--white);border:1px solid var(--gray-200);border-radius:var(--r-md);overflow:hidden;transition:var(--ease);box-shadow:var(--shadow-sm)}
+    .faq-item.active{border-color:var(--red);box-shadow:0 4px 16px rgba(217,4,22,.1)}
+    .faq-question{width:100%;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;background:none;border:none;cursor:pointer;font-family:inherit;font-size:15px;font-weight:700;color:var(--navy);text-align:left;transition:var(--ease)}
+    .faq-question:hover{color:var(--red)}
+    .faq-question svg{width:20px;height:20px;flex-shrink:0;transition:var(--ease);color:var(--gray-400)}
+    .faq-item.active .faq-question svg{transform:rotate(180deg);color:var(--red)}
+    .faq-answer{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.4,0,.2,1)}
+    .faq-answer-inner{padding:0 24px 20px;font-size:15px;color:var(--gray-800);line-height:1.7}
+
+    /* CONTACT */
+    .contact-wrapper{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+    .contact-info h3{font-size:18px;font-weight:700;color:var(--navy);margin-bottom:20px}
+    .contact-channels{display:flex;flex-direction:column;gap:12px;margin-bottom:24px}
+    .contact-channel{display:flex;gap:12px;align-items:center;padding:14px 18px;background:var(--gray-50);border-radius:var(--r-sm);text-decoration:none;color:var(--gray-800);transition:var(--ease)}
+    .contact-channel:hover{background:var(--white);box-shadow:var(--shadow-md);transform:translateX(4px)}
+    .ch-icon{width:42px;height:42px;background:var(--red);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .ch-icon svg{width:20px;height:20px;color:var(--white)}
+    .ch-text strong{display:block;font-size:14px;font-weight:700}
+    .ch-text span{font-size:13px;color:var(--gray-600)}
+    .contact-photo{border-radius:var(--r-md);overflow:hidden;margin-bottom:16px}
+    .contact-photo img{width:100%;display:block}
+    .form-card{background:var(--white);border:1px solid var(--gray-200);border-radius:var(--r-lg);padding:32px;box-shadow:var(--shadow-md)}
+    .form-card h3{font-size:18px;font-weight:700;color:var(--navy);margin-bottom:6px}
+    .form-card>p{font-size:14px;color:var(--gray-600);margin-bottom:20px}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .form-group{display:flex;flex-direction:column;gap:5px}
+    .form-group.full{grid-column:1/-1}
+    .form-group label{font-size:13px;font-weight:600;color:var(--navy)}
+    .form-group input,.form-group select,.form-group textarea{padding:12px 14px;border:1.5px solid var(--gray-200);border-radius:var(--r-sm);font-family:inherit;font-size:14px;color:var(--gray-800);transition:var(--ease);background:var(--white);outline:none}
+    .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(217,4,22,.1)}
+    .form-group textarea{resize:vertical;min-height:90px}
+    .form-submit{margin-top:6px;grid-column:1/-1}
+    .form-submit .btn-primary{width:100%;justify-content:center;padding:14px}
+    .form-disclaimer{margin-top:10px;font-size:12px;color:var(--gray-400);text-align:center}
+
+    /* FOOTER */
+    .footer{background:var(--navy);padding:48px 0 20px}
+    .footer-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,.08)}
+    .footer-brand .nav-logo{margin-bottom:12px}
+    .footer-logo{height:90px;filter:brightness(100)}
+    .footer-brand p{font-size:13px;color:var(--gray-400);line-height:1.7;max-width:300px;margin-top:12px}
+    .footer-col h4{font-size:13px;font-weight:700;color:var(--white);margin-bottom:14px;text-transform:uppercase;letter-spacing:1px}
+    .footer-col ul{list-style:none}
+    .footer-col ul li{margin-bottom:8px}
+    .footer-col ul a{color:var(--gray-400);text-decoration:none;font-size:13px;transition:var(--ease)}
+    .footer-col ul a:hover{color:var(--white)}
+    .footer-disclaimer{padding:16px 0;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:16px}
+    .footer-disclaimer p{font-size:11px;color:var(--gray-400);line-height:1.7;max-width:780px}
+    .footer-disclaimer strong{color:rgba(255,255,255,.6)}
+    .footer-bottom{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--gray-400)}
+    .footer-bottom a{color:var(--gray-400);text-decoration:underline;margin-left:16px}
+
+    /* WHATSAPP */
+    .wpp-float{position:fixed;bottom:24px;right:24px;z-index:999;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,.4);transition:var(--ease);text-decoration:none}
+    .wpp-float:hover{transform:scale(1.1);box-shadow:0 6px 24px rgba(37,211,102,.5)}
+    .wpp-float svg{width:28px;height:28px;color:var(--white)}
+
+    /* COOKIE */
+    .cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:var(--white);border-top:1px solid var(--gray-200);box-shadow:0 -4px 24px rgba(0,0,0,.1);padding:16px 24px;display:none;transform:translateY(100%);transition:transform .4s ease}
+    .cookie-banner.show{display:block;transform:translateY(0)}
+    .cookie-content{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+    .cookie-text{flex:1;min-width:260px}
+    .cookie-text strong{font-size:14px;color:var(--navy);display:block;margin-bottom:4px}
+    .cookie-text p{font-size:13px;color:var(--gray-600);line-height:1.6;margin:0}
+    .cookie-text a{color:var(--red);text-decoration:underline}
+    .cookie-actions{display:flex;gap:10px;flex-shrink:0}
+    .cookie-btn{padding:10px 20px;border-radius:50px;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer;border:none;transition:var(--ease)}
+    .cookie-btn-accept{background:var(--red);color:var(--white)}
+    .cookie-btn-accept:hover{background:var(--red-dark)}
+    .cookie-btn-essential{background:var(--gray-100);color:var(--gray-800);border:1px solid var(--gray-200)}
+    .cookie-btn-essential:hover{background:var(--gray-200)}
+
+    /* LEGAL MODAL */
+    .legal-modal{position:fixed;inset:0;z-index:10000;display:none;align-items:center;justify-content:center}
+    .legal-modal.show{display:flex}
+    .legal-modal-overlay{position:absolute;inset:0;background:rgba(13,27,42,.5);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+    .legal-modal-content{position:relative;background:var(--white);border-radius:var(--r-lg);max-width:700px;width:calc(100% - 48px);max-height:80vh;overflow-y:auto;padding:36px;box-shadow:var(--shadow-xl);z-index:1}
+    .legal-modal-close{position:absolute;top:14px;right:18px;background:none;border:none;font-size:28px;color:var(--gray-400);cursor:pointer;line-height:1;transition:var(--ease)}
+    .legal-modal-close:hover{color:var(--navy)}
+    .legal-modal-content h2{font-size:20px;font-weight:800;color:var(--navy);margin-bottom:16px}
+    .legal-modal-content h3{font-size:15px;font-weight:700;color:var(--navy);margin:20px 0 6px}
+    .legal-modal-content p,.legal-modal-content li{font-size:13px;color:var(--gray-600);line-height:1.7;margin-bottom:6px}
+    .legal-modal-content ul{padding-left:18px}
+
+    /* REVEAL */
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+
+    /* RESPONSIVE */
+    @media(max-width:1024px){
+      .hero-split{grid-template-columns:1fr;margin-top:80px}
+      .hero-photo{min-height:300px}
+      .about-grid,.audience-grid,.contact-wrapper{grid-template-columns:1fr}
+      .about-visual{order:-1}
+      .diff-grid{grid-template-columns:1fr 1fr}
+      .footer-top{grid-template-columns:1fr;gap:28px}
+    }
+    @media(max-width:768px){
+      section{padding:56px 0}
+      .nav-links{display:none}
+      .hamburger{display:flex}
+      .nav-links.active{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(255,255,255,.98);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);padding:20px;gap:14px;box-shadow:0 8px 24px rgba(0,0,0,.08);border-top:1px solid var(--gray-200)}
+      .nav-links.active a{font-size:16px;padding:8px 0;color:var(--gray-800)}
+      .coverages-grid{grid-template-columns:1fr 1fr}
+      .steps-grid,.diff-grid{grid-template-columns:1fr}
+      .stats-grid{grid-template-columns:1fr 1fr;gap:24px}
+      .form-grid{grid-template-columns:1fr}
+      .footer-bottom{flex-direction:column;gap:8px;text-align:center}
+      .cookie-content{flex-direction:column;text-align:center}
+      .cookie-actions{width:100%;justify-content:center}
+    }
+    @media(max-width:480px){
+      .coverages-grid{grid-template-columns:1fr}
+      .hero-split{margin-top:64px}
+      .hero-content{padding:36px 24px}
+      .hero-features{flex-direction:column;gap:10px}
+      .hero-actions{flex-direction:column;align-items:stretch}
+      .btn-primary,.btn-secondary{width:100%;justify-content:center}
+      .about-photo-grid{grid-template-columns:1fr}
+    }
+    @media(prefers-reduced-motion:reduce){
+      *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+      .reveal{opacity:1;transform:none}
+    }
+    @keyframes spin{to{transform:rotate(360deg)}}
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="navbar">
+    <div class="container">
+      <a href="#" class="nav-logo"><img src="logo.png" alt="S.A Evolution Proteção Veicular"></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#coberturas">Coberturas</a></li>
+        <li><a href="#como-funciona">Como funciona</a></li>
+        <li><a href="#faq">Dúvidas</a></li>
+        <li><a href="#contato" class="nav-cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Cotação Grátis</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-split">
+      <div class="hero-photo">
+        <img src="hero.png" alt="Casal sorrindo ao lado do seu Chevrolet Onix branco em rua residencial de Curitiba" loading="eager">
+        <div class="hero-photo-overlay"></div>
+      </div>
+      <div class="hero-content">
+        <div class="hero-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Proteção Veicular em Curitiba</div>
+        <h1>Seu carro protegido de verdade, sem burocracia.</h1>
+        <p>Proteção veicular completa para carros de até R$50 mil. Cobertura contra roubo, colisão, incêndio e muito mais — com mensalidades que cabem no seu bolso.</p>
+        <div class="hero-actions">
+          <a href="https://wa.me/5541996619387?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20uma%20cota%C3%A7%C3%A3o%20de%20prote%C3%A7%C3%A3o%20veicular." class="btn-primary" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Cotação pelo WhatsApp</a>
+          <a href="#coberturas" class="btn-secondary">Conheça os planos</a>
+        </div>
+        <div class="hero-features">
+          <div class="hero-feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Assistência 24 horas</span></div>
+          <div class="hero-feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg><span>Guincho em todo Brasil</span></div>
+          <div class="hero-feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span>Sem burocracia</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRANDS -->
+  <section class="brands">
+    <p class="brands-label">Protegemos todas as marcas populares</p>
+    <div class="marquee-wrap">
+      <div class="marquee-track">
+        <img class="brand-logo" src="https://www.carlogos.org/car-logos/volkswagen-logo.png" alt="Volkswagen" height="36" loading="lazy">
+        <img class="brand-logo" src="https://www.carlogos.org/car-logos/chevrolet-logo.png" alt="Chevrolet" height="36" loading="lazy">
+        <img class="brand-logo" src="https://www.carlogos.org/car-logos/fiat-logo.png" alt="Fiat" height="36" loading="lazy">
+        <img class="brand-logo" src="https://www.carlogos.org/car-logos/hyundai-logo.png" alt="Hyundai" height="36" loading="lazy">
+        <img class="brand-logo" src="https://www.carlogos.org/car-logos/toyota-logo.png" alt="Toyota" height="36" loading="lazy">
+        <img class="brand-logo" src="https://www.carlogos.org/car-logos/honda-logo.png" alt="Honda" height="36" loading="lazy">
+        <img class="brand-logo" src="https://www.carlogos.org/car-logos/renault-logo.png" alt="Renault" height="36" loading="lazy">
+        <img class="brand-logo" src="https://www.carlogos.org/car-logos/ford-logo.png" alt="Ford" height="36" loading="lazy">
+        <img class="brand-logo" src="https://www.carlogos.org/car-logos/nissan-logo.png" alt="Nissan" height="36" loading="lazy">
+        <img class="brand-logo" src="https://www.carlogos.org/car-logos/jeep-logo.png" alt="Jeep" height="36" loading="lazy">
+        <img class="brand-logo" src="https://www.carlogos.org/car-logos/citroen-logo.png" alt="Citroën" height="36" loading="lazy">
+        <img class="brand-logo" src="https://www.carlogos.org/car-logos/peugeot-logo.png" alt="Peugeot" height="36" loading="lazy">
+        <img class="brand-logo" src="https://www.carlogos.org/car-logos/kia-logo.png" alt="Kia" height="36" loading="lazy">
+        <img class="brand-logo" src="https://www.carlogos.org/car-logos/chery-logo.png" alt="Caoa Chery" height="36" loading="lazy">
+        <img class="brand-logo" src="https://www.carlogos.org/car-logos/mitsubishi-logo.png" alt="Mitsubishi" height="36" loading="lazy">
+        <img class="brand-logo" src="https://www.carlogos.org/car-logos/volkswagen-logo.png" alt="Volkswagen" height="36" loading="lazy">
+        <img class="brand-logo" src="https://www.carlogos.org/car-logos/chevrolet-logo.png" alt="Chevrolet" height="36" loading="lazy">
+        <img class="brand-logo" src="https://www.carlogos.org/car-logos/fiat-logo.png" alt="Fiat" height="36" loading="lazy">
+        <img class="brand-logo" src="https://www.carlogos.org/car-logos/hyundai-logo.png" alt="Hyundai" height="36" loading="lazy">
+        <img class="brand-logo" src="https://www.carlogos.org/car-logos/toyota-logo.png" alt="Toyota" height="36" loading="lazy">
+        <img class="brand-logo" src="https://www.carlogos.org/car-logos/honda-logo.png" alt="Honda" height="36" loading="lazy">
+        <img class="brand-logo" src="https://www.carlogos.org/car-logos/renault-logo.png" alt="Renault" height="36" loading="lazy">
+        <img class="brand-logo" src="https://www.carlogos.org/car-logos/ford-logo.png" alt="Ford" height="36" loading="lazy">
+        <img class="brand-logo" src="https://www.carlogos.org/car-logos/nissan-logo.png" alt="Nissan" height="36" loading="lazy">
+        <img class="brand-logo" src="https://www.carlogos.org/car-logos/jeep-logo.png" alt="Jeep" height="36" loading="lazy">
+        <img class="brand-logo" src="https://www.carlogos.org/car-logos/citroen-logo.png" alt="Citroën" height="36" loading="lazy">
+        <img class="brand-logo" src="https://www.carlogos.org/car-logos/peugeot-logo.png" alt="Peugeot" height="36" loading="lazy">
+        <img class="brand-logo" src="https://www.carlogos.org/car-logos/kia-logo.png" alt="Kia" height="36" loading="lazy">
+        <img class="brand-logo" src="https://www.carlogos.org/car-logos/chery-logo.png" alt="Caoa Chery" height="36" loading="lazy">
+        <img class="brand-logo" src="https://www.carlogos.org/car-logos/mitsubishi-logo.png" alt="Mitsubishi" height="36" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="sobre">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-visual reveal">
+          <div class="about-photo"><img src="sobre-principal.png" alt="Consultora da S.A Evolution atendendo cliente no escritório" loading="lazy"></div>
+          <div class="about-photo-grid">
+            <div class="thumb"><img src="sobre-grid1.png" alt="Aperto de mão entre consultor e cliente fechando proteção veicular" loading="lazy"></div>
+            <div class="thumb"><img src="sobre-grid2.png" alt="Equipe S.A Evolution de polo vermelha sorrindo no escritório" loading="lazy"></div>
+          </div>
+        </div>
+        <div class="about-content reveal">
+          <div class="section-label">Quem somos</div>
+          <h2 class="section-title">A <span>S.A Evolution</span> nasceu pra quem não pode ficar sem proteção.</h2>
+          <p class="section-subtitle">Se o seu carro é sua ferramenta de trabalho ou o transporte da sua família, ficar sem ele não é opção. E ficar sem proteção também não deveria ser.</p>
+          <div class="about-features">
+            <div class="about-feature"><div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div><h4>Adesão rápida e sem burocracia</h4><p>Nada de pilha de documentos ou vistoria que nunca acontece.</p></div></div>
+            <div class="about-feature"><div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div><h4>Atendimento de gente, não de robô</h4><p>Quando você liga, alguém atende. Sem menu infinito.</p></div></div>
+            <div class="about-feature"><div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div><h4>Cobertura de verdade, sem letra miúda</h4><p>O que está no contrato é o que você recebe. Sem pegadinhas.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COVERAGES -->
+  <section class="coverages" id="coberturas">
+    <div class="container">
+      <div class="section-header reveal"><div class="section-label">Coberturas</div><h2 class="section-title">O que está incluso na sua <span>proteção</span></h2><p class="section-subtitle">Cada plano cobre o que realmente importa no seu dia a dia.</p></div>
+      <div class="coverages-grid">
+        <div class="coverage-card reveal"><div class="coverage-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><h3>Roubo e Furto</h3><p>Seu carro foi levado? A gente resolve. Sem interrogatório.</p></div>
+        <div class="coverage-card reveal"><div class="coverage-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg></div><h3>Colisão</h3><p>Bateu ou bateram em você? Seu carro volta ao normal.</p></div>
+        <div class="coverage-card reveal"><div class="coverage-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></div><h3>Incêndio</h3><p>Curto-circuito, pane elétrica, incêndio. Cobertura garantida.</p></div>
+        <div class="coverage-card reveal"><div class="coverage-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 16.58A5 5 0 0 0 18 7h-1.26A8 8 0 1 0 4 15.25"/><line x1="8" y1="15" x2="8" y2="21"/><line x1="12" y1="13" x2="12" y2="21"/><line x1="16" y1="17" x2="16" y2="21"/></svg></div><h3>Fenômenos da Natureza</h3><p>Granizo, enchentes, vendavais. Proteção contra o imprevisível.</p></div>
+        <div class="coverage-card reveal"><div class="coverage-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><h3>Assistência 24 Horas</h3><p>Duas da manhã, feriado, domingo. Ligou, a gente atende.</p></div>
+        <div class="coverage-card reveal"><div class="coverage-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div><h3>Guincho Nacional</h3><p>Quebrou na estrada? O guincho vai até você em qualquer lugar do país.</p></div>
+        <div class="coverage-card reveal"><div class="coverage-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg></div><h3>Chaveiro</h3><p>Trancou a chave dentro do carro? Resolvemos na hora.</p></div>
+        <div class="coverage-card reveal"><div class="coverage-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div><h3>Troca de Pneus</h3><p>Pneu furou? A gente manda alguém. Sem estresse.</p></div>
+        <div class="coverage-card reveal"><div class="coverage-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/><path d="M7 17h4"/></svg></div><h3>Carro Reserva</h3><p>Enquanto o seu está no conserto, você não fica a pé.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFFERENTIALS -->
+  <section class="differentials" id="diferenciais">
+    <div class="container">
+      <div class="section-header reveal"><div class="section-label">Diferenciais</div><h2 class="section-title">Por que a S.A Evolution é <span>diferente</span></h2></div>
+      <div class="diff-grid">
+        <div class="diff-card reveal"><div class="diff-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><h3>Adesão Rápida</h3><p>Sem pilha de documentos. Escolheu o plano, já está protegido.</p></div>
+        <div class="diff-card reveal"><div class="diff-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><h3>Cabe no Bolso</h3><p>Mensalidades que não pesam no fim do mês.</p></div>
+        <div class="diff-card reveal"><div class="diff-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><h3>Atendimento Humano</h3><p>Gente resolvendo seu problema. Sem robô, sem menu infinito.</p></div>
+        <div class="diff-card reveal"><div class="diff-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h3>Sem Letra Miúda</h3><p>O que está no contrato é o que você recebe.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEPS -->
+  <section class="steps" id="como-funciona">
+    <div class="container">
+      <div class="section-header reveal"><div class="section-label">Como funciona</div><h2 class="section-title">Três passos. <span>É só isso.</span></h2></div>
+      <div class="steps-grid">
+        <div class="step-card reveal"><div class="step-number">1</div><h3>Fale com a gente</h3><p>Manda mensagem no WhatsApp ou preenche o formulário. Leva menos de 10 minutos.</p></div>
+        <div class="step-card reveal"><div class="step-number">2</div><h3>Escolha seu plano</h3><p>Montamos uma proposta pro seu bolso e pro seu carro. Sem pacote engessado.</p></div>
+        <div class="step-card reveal"><div class="step-number">3</div><h3>Comece protegido</h3><p>Assinou? Já está valendo. Proteção imediata, do jeito que tem que ser.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item"><h3>24h</h3><p>Atendimento sem parar</p></div>
+        <div class="stat-item"><h3>Brasil</h3><p>Guincho em todo o país</p></div>
+        <div class="stat-item"><h3>Rápida</h3><p>Adesão sem burocracia</p></div>
+        <div class="stat-item"><h3>Fixo</h3><p>Mensalidade sem surpresa</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AUDIENCE -->
+  <section class="audience" id="para-quem">
+    <div class="container">
+      <div class="section-header reveal"><div class="section-label">Para quem</div><h2 class="section-title">A S.A Evolution é <span>pra você</span> se...</h2></div>
+      <div class="audience-grid">
+        <div class="audience-list reveal">
+          <div class="audience-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><p>Seu carro vale até R$50 mil e o seguro tradicional cobra como se fosse uma BMW</p></div>
+          <div class="audience-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><p>Você depende do carro pra trabalhar e não pode ficar dias esperando</p></div>
+          <div class="audience-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><p>Já cansou de pagar caro e ser tratado como número</p></div>
+          <div class="audience-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><p>Quer proteção completa sem precisar de advogado pra entender o contrato</p></div>
+          <div class="audience-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><p>Mora em Curitiba ou região e quer atendimento de quem conhece a cidade</p></div>
+        </div>
+        <div class="audience-cta reveal">
+          <div class="audience-cta-photo"><img src="publico-carro.png" alt="Hyundai HB20 prata estacionado em rua comercial de Curitiba" loading="lazy"></div>
+          <h3>Seu carro merece mais do que sorte.</h3>
+          <p>A cotação é gratuita e leva menos de 10 minutos.</p>
+          <a href="https://wa.me/5541996619387?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20uma%20cota%C3%A7%C3%A3o." class="btn-primary" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Quero minha cotação grátis</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="section-header reveal"><div class="section-label">Dúvidas</div><h2 class="section-title">O que você quer saber <span>antes de decidir</span></h2></div>
+      <div class="faq-list">
+        <div class="faq-item"><button class="faq-question" aria-expanded="false">Proteção veicular é a mesma coisa que seguro?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-answer"><div class="faq-answer-inner">Não exatamente. O seguro tradicional é regulado pela SUSEP. A proteção veicular funciona no modelo associativo — você faz parte de uma associação que divide os custos. Coberturas parecidas por um valor bem mais acessível.</div></div></div>
+        <div class="faq-item"><button class="faq-question" aria-expanded="false">Tem carência?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-answer"><div class="faq-answer-inner">Varia conforme o plano. Somos transparentes desde o primeiro contato — você sabe exatamente quando cada cobertura começa.</div></div></div>
+        <div class="faq-item"><button class="faq-question" aria-expanded="false">Como aciono a proteção?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-answer"><div class="faq-answer-inner">Liga ou manda mensagem no WhatsApp. 24 horas, 7 dias por semana.</div></div></div>
+        <div class="faq-item"><button class="faq-question" aria-expanded="false">Qualquer carro pode entrar?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-answer"><div class="faq-answer-inner">Trabalhamos com veículos de até R$50 mil na tabela FIPE. Carros populares, seminovos, utilitários.</div></div></div>
+        <div class="faq-item"><button class="faq-question" aria-expanded="false">A mensalidade é fixa?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-answer"><div class="faq-answer-inner">Sim. Nada de reajuste surpresa. O valor combinado é o que você paga.</div></div></div>
+        <div class="faq-item"><button class="faq-question" aria-expanded="false">Posso cancelar quando quiser?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-answer"><div class="faq-answer-inner">Pode. Sem multa, sem pegadinha.</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contato">
+    <div class="container">
+      <div class="section-header reveal"><div class="section-label">Contato</div><h2 class="section-title">Faça sua <span>cotação gratuita</span></h2><p class="section-subtitle">Preencha o formulário. Seus dados serão enviados diretamente para nosso WhatsApp.</p></div>
+      <div class="contact-wrapper">
+        <div class="contact-info reveal">
+          <h3>Fale com a gente</h3>
+          <div class="contact-channels">
+            <a href="https://wa.me/5541996619387" class="contact-channel" target="_blank" rel="noopener"><div class="ch-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div><div class="ch-text"><strong>WhatsApp</strong><span>(41) 99661-9387</span></div></a>
+            <a href="tel:+5541996619387" class="contact-channel"><div class="ch-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><div class="ch-text"><strong>Telefone</strong><span>(41) 99661-9387</span></div></a>
+            <div class="contact-channel"><div class="ch-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div class="ch-text"><strong>Localização</strong><span>Curitiba — PR</span></div></div>
+          </div>
+          <div class="contact-photo"><img src="contato-equipe.png" alt="Atendente S.A Evolution com headset sorrindo durante suporte ao cliente" loading="lazy"></div>
+          <div style="background:var(--gray-50);border-radius:var(--r-md);padding:20px;margin-top:16px"><p style="font-size:13px;color:var(--gray-600);line-height:1.7"><strong style="color:var(--navy)">Horário de atendimento:</strong><br>Segunda a Sexta: 8h às 18h<br>Sábado: 9h às 13h<br><strong style="color:var(--red)">Assistência 24h:</strong> Todos os dias</p></div>
+        </div>
+        <div class="form-card reveal">
+          <h3>Solicite sua cotação</h3>
+          <p>Resposta em até 30 minutos no horário comercial.</p>
+          <form id="cotacaoForm" action="https://formspree.io/f/SEU_FORM_ID" method="POST">
+            <input type="hidden" name="_subject" value="Nova cotação - S.A Evolution">
+            <div class="form-grid">
+              <div class="form-group"><label for="nome">Nome completo *</label><input type="text" id="nome" name="nome" required placeholder="Seu nome"></div>
+              <div class="form-group"><label for="telefone">WhatsApp *</label><input type="tel" id="telefone" name="telefone" required placeholder="(41) 99999-9999"></div>
+              <div class="form-group"><label for="email">E-mail</label><input type="email" id="email" name="email" placeholder="seu@email.com"></div>
+              <div class="form-group"><label for="veiculo">Veículo *</label><input type="text" id="veiculo" name="veiculo" required placeholder="Ex: Onix 2022"></div>
+              <div class="form-group"><label for="valor_fipe">Valor FIPE estimado</label><select id="valor_fipe" name="valor_fipe"><option value="">Selecione a faixa</option><option value="Até R$20.000">Até R$20.000</option><option value="R$20.000 a R$30.000">R$20.000 a R$30.000</option><option value="R$30.000 a R$40.000">R$30.000 a R$40.000</option><option value="R$40.000 a R$50.000">R$40.000 a R$50.000</option></select></div>
+              <div class="form-group"><label for="cidade">Cidade</label><input type="text" id="cidade" name="cidade" placeholder="Curitiba"></div>
+              <div class="form-group full"><label for="mensagem">Alguma observação?</label><textarea id="mensagem" name="mensagem" placeholder="Conte algo sobre o que você precisa..."></textarea></div>
+              <div class="form-submit"><button type="submit" class="btn-primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Enviar e Receber Cotação</button></div>
+            </div>
+            <p class="form-disclaimer">Seus dados estão seguros. Usamos apenas para entrar em contato sobre sua cotação.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#" class="nav-logo"><img src="logo.png" alt="S.A Evolution" class="footer-logo"></a>
+          <p>Mais que proteção, tranquilidade. Cuidamos do seu patrimônio para que você dirija sem preocupações.</p>
+        </div>
+        <div class="footer-col"><h4>Navegação</h4><ul><li><a href="#sobre">Sobre</a></li><li><a href="#coberturas">Coberturas</a></li><li><a href="#como-funciona">Como funciona</a></li><li><a href="#faq">Dúvidas</a></li><li><a href="#contato">Contato</a></li></ul></div>
+        <div class="footer-col"><h4>Contato</h4><ul><li><a href="https://wa.me/5541996619387" target="_blank" rel="noopener">WhatsApp</a></li><li><a href="tel:+5541996619387">(41) 99661-9387</a></li><li><a href="#">Curitiba — PR</a></li></ul></div>
+      </div>
+      <div class="footer-disclaimer"><p><strong>Aviso legal:</strong> A S.A Evolution Proteção Veicular não é uma seguradora. Atuamos como associação de proteção veicular no modelo de rateio, amparada pelo artigo 5º, inciso XVII, da Constituição Federal. Os serviços oferecidos não se confundem com seguros regulados pela SUSEP.</p></div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 S.A Evolution Proteção Veicular. Todos os direitos reservados.</span>
+        <span><a href="#" onclick="openModal('privacidade');return false">Política de Privacidade</a><a href="#" onclick="openModal('termos');return false">Termos de Uso</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WHATSAPP -->
+  <a href="https://wa.me/5541996619387?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20uma%20cota%C3%A7%C3%A3o." class="wpp-float" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+
+  <!-- COOKIE BANNER -->
+  <div class="cookie-banner" id="cookieBanner"><div class="cookie-content"><div class="cookie-text"><strong>Utilizamos cookies</strong><p>Este site usa cookies para melhorar sua experiência. Ao continuar, você concorda com nossa <a href="#" onclick="openModal('privacidade');return false">Política de Privacidade</a>.</p></div><div class="cookie-actions"><button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()">Aceitar todos</button><button class="cookie-btn cookie-btn-essential" onclick="acceptEssential()">Apenas essenciais</button></div></div></div>
+
+  <!-- LEGAL MODAL -->
+  <div class="legal-modal" id="legalModal"><div class="legal-modal-overlay" onclick="closeModal()"></div><div class="legal-modal-content"><button class="legal-modal-close" onclick="closeModal()" aria-label="Fechar">&times;</button><div id="modalBody"></div></div></div>
+
+  <script>
+    const legalContent={privacidade:`<h2>Política de Privacidade</h2><p><strong>Última atualização:</strong> Junho de 2026</p><p>A S.A Evolution Proteção Veicular se compromete com a proteção dos seus dados pessoais em conformidade com a LGPD (Lei nº 13.709/2018).</p><h3>1. Dados coletados</h3><ul><li><strong>Identificação:</strong> nome, e-mail, telefone, cidade.</li><li><strong>Veículo:</strong> marca, modelo, faixa de valor FIPE.</li><li><strong>Navegação:</strong> IP, navegador, páginas visitadas (via cookies).</li></ul><h3>2. Finalidade</h3><ul><li>Responder solicitações de cotação.</li><li>Melhorar a experiência do site.</li><li>Cumprir obrigações legais.</li></ul><h3>3. Base legal</h3><p>Consentimento (Art. 7º, I), execução de contrato (Art. 7º, V) e legítimo interesse (Art. 7º, IX).</p><h3>4. Compartilhamento</h3><p>Dados não são vendidos. Podem ser compartilhados com prestadores de serviço (assistência, guincho) e ferramentas de análise.</p><h3>5. Seus direitos (Art. 18)</h3><p>Acesso, correção, exclusão, portabilidade e revogação do consentimento via WhatsApp (41) 99661-9387.</p><h3>6. Retenção</h3><p>Dados de cotações não convertidas são eliminados em até 12 meses.</p>`,termos:`<h2>Termos de Uso</h2><p><strong>Última atualização:</strong> Junho de 2026</p><h3>1. Natureza do serviço</h3><p>A S.A Evolution é uma associação de proteção veicular (modelo de rateio, Art. 5º, XVII, CF). <strong>Não somos seguradora</strong> — nossos serviços não são regulados pela SUSEP.</p><h3>2. Uso do site</h3><p>Site informativo e de captação de contatos. As informações não constituem oferta vinculante.</p><h3>3. Formulário</h3><p>Ao preencher, você consente com o envio dos dados para nossa equipe comercial. Não gera obrigação de contratação.</p><h3>4. Propriedade intelectual</h3><p>Todo conteúdo é propriedade da S.A Evolution. Reprodução vedada sem autorização.</p><h3>5. Foro</h3><p>Comarca de Curitiba/PR.</p>`};
+    function openModal(t){document.getElementById('modalBody').innerHTML=legalContent[t];document.getElementById('legalModal').classList.add('show');document.body.style.overflow='hidden'}
+    function closeModal(){document.getElementById('legalModal').classList.remove('show');document.body.style.overflow=''}
+    document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+    function acceptCookies(){localStorage.setItem('sa_cookies','all');document.getElementById('cookieBanner').classList.remove('show')}
+    function acceptEssential(){localStorage.setItem('sa_cookies','essential');document.getElementById('cookieBanner').classList.remove('show')}
+    if(!localStorage.getItem('sa_cookies'))setTimeout(()=>document.getElementById('cookieBanner').classList.add('show'),1500);
+
+    document.getElementById('navbar');window.addEventListener('scroll',()=>{document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50)});
+    const hamburger=document.getElementById('hamburger'),navLinks=document.getElementById('navLinks');
+    hamburger.addEventListener('click',()=>{hamburger.classList.toggle('active');navLinks.classList.toggle('active')});
+    navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{hamburger.classList.remove('active');navLinks.classList.remove('active')}));
+    const revealObs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');revealObs.unobserve(e.target)}})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+    document.querySelectorAll('.reveal').forEach(el=>revealObs.observe(el));
+    document.querySelectorAll('.faq-question').forEach(btn=>{btn.addEventListener('click',()=>{const item=btn.parentElement,answer=item.querySelector('.faq-answer'),isActive=item.classList.contains('active');document.querySelectorAll('.faq-item.active').forEach(o=>{o.classList.remove('active');o.querySelector('.faq-answer').style.maxHeight='0';o.querySelector('.faq-question').setAttribute('aria-expanded','false')});if(!isActive){item.classList.add('active');answer.style.maxHeight=answer.scrollHeight+'px';btn.setAttribute('aria-expanded','true')}})});
+    const phoneInput=document.getElementById('telefone');phoneInput.addEventListener('input',e=>{let v=e.target.value.replace(/\D/g,'');if(v.length>11)v=v.slice(0,11);if(v.length>6)v=`(${v.slice(0,2)}) ${v.slice(2,7)}-${v.slice(7)}`;else if(v.length>2)v=`(${v.slice(0,2)}) ${v.slice(2)}`;else if(v.length>0)v=`(${v}`;e.target.value=v});
+    document.getElementById('cotacaoForm').addEventListener('submit',async e=>{e.preventDefault();const form=e.target,btn=form.querySelector('button[type="submit"]'),orig=btn.innerHTML;btn.innerHTML='<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="animation:spin 1s linear infinite"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg> Enviando...';btn.disabled=true;const fd=new FormData(form);try{await fetch(form.action,{method:'POST',body:fd,headers:{'Accept':'application/json'}})}catch(err){}let t=`Olá! Gostaria de uma cotação.\n\n*Nome:* ${fd.get('nome')}\n*Tel:* ${fd.get('telefone')}\n`;if(fd.get('veiculo'))t+=`*Veículo:* ${fd.get('veiculo')}\n`;if(fd.get('valor_fipe'))t+=`*FIPE:* ${fd.get('valor_fipe')}\n`;if(fd.get('cidade'))t+=`*Cidade:* ${fd.get('cidade')}\n`;if(fd.get('mensagem'))t+=`*Obs:* ${fd.get('mensagem')}\n`;btn.innerHTML='<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Enviado!';btn.style.background='#16a34a';setTimeout(()=>{window.open(`https://wa.me/5541996619387?text=${encodeURIComponent(t)}`,'_blank');setTimeout(()=>{btn.innerHTML=orig;btn.style.background='';btn.disabled=false;form.reset()},2000)},1000)});
+  </script>
+</body>
+</html>
