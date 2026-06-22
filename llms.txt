@@ -1,0 +1,19 @@
+# S.A Evolution Proteção Veicular
+
+> A S.A Evolution é uma associação de proteção veicular em Curitiba-PR, especializada em carros populares de até R$50 mil na tabela FIPE. Oferece cobertura contra roubo, furto, colisão, incêndio, fenômenos naturais, assistência 24 horas e guincho nacional, no modelo associativo de rateio amparado pelo artigo 5º, inciso XVII, da Constituição Federal. Não é uma seguradora regulada pela SUSEP.
+
+## Serviços
+- [Coberturas](https://neimaciel.github.io/sa-evolution-site/#coberturas): Roubo, furto, colisão, incêndio, fenômenos da natureza, assistência 24h, guincho nacional, chaveiro, troca de pneus e carro reserva
+- [Como Funciona](https://neimaciel.github.io/sa-evolution-site/#como-funciona): Processo de adesão em 3 passos — contato via WhatsApp, escolha do plano e proteção imediata
+- [Diferenciais](https://neimaciel.github.io/sa-evolution-site/#diferenciais): Adesão rápida, mensalidade fixa, atendimento humano, sem letra miúda
+
+## Sobre
+- [Quem Somos](https://neimaciel.github.io/sa-evolution-site/#sobre): Associação focada em proteção acessível para veículos populares em Curitiba e região
+- [Para Quem](https://neimaciel.github.io/sa-evolution-site/#para-quem): Proprietários de carros até R$50 mil que buscam proteção completa com custo acessível
+
+## Contato
+- [Cotação Gratuita](https://neimaciel.github.io/sa-evolution-site/#contato): Formulário de contato com resposta em até 30 minutos no horário comercial
+- [WhatsApp](https://wa.me/5541996619387): Canal direto — (41) 99661-9387
+
+## Optional
+- [Dúvidas Frequentes](https://neimaciel.github.io/sa-evolution-site/#faq): 6 perguntas e respostas sobre proteção veicular, carência, cancelamento e modelo associativo
