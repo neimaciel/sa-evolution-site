@@ -15,5 +15,17 @@
 - [Cotação Gratuita](https://neimaciel.github.io/sa-evolution-site/#contato): Formulário de contato com resposta em até 30 minutos no horário comercial
 - [WhatsApp](https://wa.me/5541996619387): Canal direto — (41) 99661-9387
 
+## Blog
+- [Proteção Veicular vs Seguro](https://neimaciel.github.io/sa-evolution-site/blog/protecao-veicular-vs-seguro.html): Diferenças entre modelo associativo e seguro SUSEP, comparação de custos e coberturas
+- [Sistema de Rateio](https://neimaciel.github.io/sa-evolution-site/blog/como-funciona-rateio.html): Como funciona a divisão de custos na proteção veicular e base legal (CF Art. 5º XVII)
+- [Tabela FIPE](https://neimaciel.github.io/sa-evolution-site/blog/tabela-fipe-protecao.html): O que é a FIPE, como afeta mensalidade e indenização na proteção veicular
+- [Prevenção de Roubo em Curitiba](https://neimaciel.github.io/sa-evolution-site/blog/prevenir-roubo-curitiba.html): Estatísticas de roubo/furto no PR e dicas práticas de segurança
+- [O Que Fazer em Acidente](https://neimaciel.github.io/sa-evolution-site/blog/o-que-fazer-acidente.html): Passo a passo pós-acidente com referências ao CTB e DETRAN-PR
+- [Carros Populares](https://neimaciel.github.io/sa-evolution-site/blog/carros-populares-protecao.html): Por que Onix, HB20, Argo e Gol são os que mais precisam de proteção
+- [Assistência 24h](https://neimaciel.github.io/sa-evolution-site/blog/assistencia-24h-guia.html): Guia completo de serviços inclusos e como acionar
+- [Guincho Nacional](https://neimaciel.github.io/sa-evolution-site/blog/guincho-nacional-viagens.html): Cobertura de guincho em viagens, limites e procedimentos
+- [Motoristas de Aplicativo](https://neimaciel.github.io/sa-evolution-site/blog/motorista-aplicativo-protecao.html): Por que proteção veicular é a melhor opção para Uber, 99 e InDriver
+- [Direitos do Associado](https://neimaciel.github.io/sa-evolution-site/blog/direitos-associado.html): Direitos legais do associado (CF, CC, CDC) e como reclamar
+
 ## Optional
 - [Dúvidas Frequentes](https://neimaciel.github.io/sa-evolution-site/#faq): 6 perguntas e respostas sobre proteção veicular, carência, cancelamento e modelo associativo

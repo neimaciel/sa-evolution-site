@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — S.A Evolution Proteção Veicular | Curitiba</title>
+  <meta name="description" content="Artigos sobre proteção veicular, dicas de segurança, tabela FIPE, assistência 24h e tudo sobre proteção de carros populares em Curitiba.">
+  <link rel="canonical" href="https://neimaciel.github.io/sa-evolution-site/blog/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Blog — S.A Evolution Proteção Veicular">
+  <meta property="og:description" content="Artigos sobre proteção veicular, dicas de segurança e tudo sobre proteção de carros populares em Curitiba.">
+  <meta property="og:url" content="https://neimaciel.github.io/sa-evolution-site/blog/">
+  <meta property="og:image" content="https://neimaciel.github.io/sa-evolution-site/hero.png">
+  <meta property="og:locale" content="pt_BR">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    :root{--red:#D90416;--red-dark:#B80012;--navy:#0D1B2A;--white:#FFFFFF;--gray-50:#F8FAFB;--gray-100:#F1F4F8;--gray-200:#E2E8F0;--gray-400:#94A3B8;--gray-600:#64748B;--gray-800:#1E293B;--r-sm:12px;--r-md:16px;--r-lg:24px;--ease:0.3s cubic-bezier(.4,0,.2,1)}
+    html{scroll-behavior:smooth}
+    body{font-family:'Montserrat',sans-serif;color:var(--gray-800);background:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased}
+    .container{max-width:1200px;margin:0 auto;padding:0 24px}
+    a{text-decoration:none;color:inherit}
+
+    .nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:8px 0;background:rgba(255,255,255,.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,.06);box-shadow:0 2px 16px rgba(0,0,0,.08)}
+    .nav .container{display:flex;align-items:center;justify-content:space-between}
+    .nav-logo img{height:80px;width:auto;filter:brightness(0) saturate(100%) invert(11%) sepia(93%) saturate(5765%) hue-rotate(352deg) brightness(90%) contrast(107%)}
+    .nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+    .nav-links a{color:var(--gray-600);font-size:14px;font-weight:500;transition:var(--ease)}
+    .nav-links a:hover{color:var(--navy)}
+    .nav-cta{background:var(--red)!important;color:var(--white)!important;padding:10px 20px;border-radius:50px;font-weight:600;display:inline-flex;align-items:center;gap:8px;transition:var(--ease)}
+    .nav-cta:hover{background:var(--red-dark)!important}
+
+    .blog-hero{padding:140px 0 60px;background:var(--gray-50);text-align:center}
+    .blog-hero h1{font-size:clamp(28px,4vw,42px);font-weight:800;color:var(--navy);margin-bottom:12px}
+    .blog-hero p{font-size:16px;color:var(--gray-600);max-width:540px;margin:0 auto}
+
+    .blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:24px;padding:60px 0 80px}
+    .blog-card{background:var(--white);border:1px solid var(--gray-200);border-radius:var(--r-md);overflow:hidden;transition:var(--ease)}
+    .blog-card:hover{box-shadow:0 8px 32px rgba(13,27,42,.12);transform:translateY(-4px)}
+    .blog-card-img{height:200px;background:var(--navy);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+    .blog-card-img .icon{width:48px;height:48px;color:var(--red);opacity:.6}
+    .blog-card-tag{position:absolute;top:12px;left:12px;background:var(--red);color:var(--white);font-size:11px;font-weight:700;padding:4px 12px;border-radius:50px;text-transform:uppercase;letter-spacing:.5px}
+    .blog-card-body{padding:24px}
+    .blog-card-body h2{font-size:18px;font-weight:700;color:var(--navy);margin-bottom:8px;line-height:1.3}
+    .blog-card-body p{font-size:14px;color:var(--gray-600);line-height:1.6;margin-bottom:16px}
+    .blog-card-meta{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--gray-400)}
+    .blog-card-link{color:var(--red);font-weight:600;font-size:14px;display:inline-flex;align-items:center;gap:6px}
+    .blog-card-link:hover{gap:10px}
+
+    .footer{background:var(--navy);padding:32px 0;text-align:center}
+    .footer p{font-size:13px;color:var(--gray-400)}
+    .footer a{color:var(--gray-400);text-decoration:underline;margin:0 8px}
+
+    @media(max-width:768px){
+      .nav-links{display:none}
+      .blog-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container">
+      <a href="../"><img src="../logo.png" alt="S.A Evolution" class="nav-logo"></a>
+      <ul class="nav-links">
+        <li><a href="../#sobre">Sobre</a></li>
+        <li><a href="../#coberturas">Coberturas</a></li>
+        <li><a href="../#faq">Dúvidas</a></li>
+        <li><a href="./">Blog</a></li>
+        <li><a href="../#contato" class="nav-cta">Cotação Grátis</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="blog-hero">
+    <div class="container">
+      <h1>Blog S.A Evolution</h1>
+      <p>Informação de qualidade sobre proteção veicular, segurança e tudo que você precisa saber antes de proteger seu carro.</p>
+    </div>
+  </section>
+
+  <main class="container">
+    <div class="blog-grid">
+
+      <a href="protecao-veicular-vs-seguro.html" class="blog-card">
+        <div class="blog-card-img"><span class="blog-card-tag">Guia</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="blog-card-body">
+          <h2>Proteção Veicular vs Seguro Tradicional: Qual a Diferença?</h2>
+          <p>Entenda as diferenças entre o modelo associativo e o seguro regulado pela SUSEP, e descubra qual é melhor para o seu bolso.</p>
+          <div class="blog-card-meta"><span>10 min de leitura</span><span class="blog-card-link">Ler artigo →</span></div>
+        </div>
+      </a>
+
+      <a href="como-funciona-rateio.html" class="blog-card">
+        <div class="blog-card-img"><span class="blog-card-tag">Educativo</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+        <div class="blog-card-body">
+          <h2>Como Funciona o Sistema de Rateio na Proteção Veicular</h2>
+          <p>O rateio é a base da proteção veicular. Veja como funciona a divisão de custos e por que isso torna a proteção mais acessível.</p>
+          <div class="blog-card-meta"><span>8 min de leitura</span><span class="blog-card-link">Ler artigo →</span></div>
+        </div>
+      </a>
+
+      <a href="tabela-fipe-protecao.html" class="blog-card">
+        <div class="blog-card-img"><span class="blog-card-tag">Dica</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        <div class="blog-card-body">
+          <h2>Tabela FIPE: O Que É e Como Afeta Sua Proteção Veicular</h2>
+          <p>A tabela FIPE define o valor de referência do seu carro. Entenda como ela influencia sua mensalidade e indenização.</p>
+          <div class="blog-card-meta"><span>7 min de leitura</span><span class="blog-card-link">Ler artigo →</span></div>
+        </div>
+      </a>
+
+      <a href="prevenir-roubo-curitiba.html" class="blog-card">
+        <div class="blog-card-img"><span class="blog-card-tag">Segurança</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+        <div class="blog-card-body">
+          <h2>Como Prevenir Roubo e Furto de Veículos em Curitiba</h2>
+          <p>Curitiba registra milhares de ocorrências por ano. Conheça as dicas práticas para proteger seu carro no dia a dia.</p>
+          <div class="blog-card-meta"><span>9 min de leitura</span><span class="blog-card-link">Ler artigo →</span></div>
+        </div>
+      </a>
+
+      <a href="o-que-fazer-acidente.html" class="blog-card">
+        <div class="blog-card-img"><span class="blog-card-tag">Passo a passo</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+        <div class="blog-card-body">
+          <h2>O Que Fazer em Caso de Acidente de Trânsito: Guia Completo</h2>
+          <p>Passo a passo de como agir após um acidente, desde o registro do boletim até o acionamento da proteção veicular.</p>
+          <div class="blog-card-meta"><span>11 min de leitura</span><span class="blog-card-link">Ler artigo →</span></div>
+        </div>
+      </a>
+
+      <a href="carros-populares-protecao.html" class="blog-card">
+        <div class="blog-card-img"><span class="blog-card-tag">Análise</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+        <div class="blog-card-body">
+          <h2>Proteção Veicular Para Carros Populares: Vale a Pena?</h2>
+          <p>Onix, HB20, Argo, Gol — os carros mais vendidos do Brasil são também os mais roubados. Veja por que proteger o seu.</p>
+          <div class="blog-card-meta"><span>8 min de leitura</span><span class="blog-card-link">Ler artigo →</span></div>
+        </div>
+      </a>
+
+      <a href="assistencia-24h-guia.html" class="blog-card">
+        <div class="blog-card-img"><span class="blog-card-tag">Serviço</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div class="blog-card-body">
+          <h2>Assistência 24 Horas: O Que Está Incluso e Como Acionar</h2>
+          <p>Guincho, chaveiro, troca de pneu, pane elétrica. Saiba tudo que a assistência 24h cobre e como usar quando precisar.</p>
+          <div class="blog-card-meta"><span>7 min de leitura</span><span class="blog-card-link">Ler artigo →</span></div>
+        </div>
+      </a>
+
+      <a href="guincho-nacional-viagens.html" class="blog-card">
+        <div class="blog-card-img"><span class="blog-card-tag">Viagem</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div class="blog-card-body">
+          <h2>Guincho Nacional: Como Funciona a Cobertura em Viagens</h2>
+          <p>Vai viajar de carro? Entenda como o guincho nacional funciona, os limites de quilometragem e o que fazer na estrada.</p>
+          <div class="blog-card-meta"><span>6 min de leitura</span><span class="blog-card-link">Ler artigo →</span></div>
+        </div>
+      </a>
+
+      <a href="motorista-aplicativo-protecao.html" class="blog-card">
+        <div class="blog-card-img"><span class="blog-card-tag">Nicho</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <div class="blog-card-body">
+          <h2>Proteção Veicular Para Motoristas de Aplicativo</h2>
+          <p>Uber, 99, InDriver — motoristas de app rodam muito mais e precisam de proteção diferenciada. Veja as opções.</p>
+          <div class="blog-card-meta"><span>8 min de leitura</span><span class="blog-card-link">Ler artigo →</span></div>
+        </div>
+      </a>
+
+      <a href="direitos-associado.html" class="blog-card">
+        <div class="blog-card-img"><span class="blog-card-tag">Jurídico</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+        <div class="blog-card-body">
+          <h2>Direitos do Associado na Proteção Veicular</h2>
+          <p>Conheça seus direitos como associado: o que a associação deve garantir, como reclamar e o que diz a legislação.</p>
+          <div class="blog-card-meta"><span>9 min de leitura</span><span class="blog-card-link">Ler artigo →</span></div>
+        </div>
+      </a>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 S.A Evolution Proteção Veicular. Todos os direitos reservados. <a href="../">Início</a><a href="../#contato">Contato</a></p>
+    </div>
+  </footer>
+</body>
+</html>
