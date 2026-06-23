@@ -36,4 +36,4 @@ Allow: /
 User-agent: Applebot-Extended
 Allow: /
 
-Sitemap: https://neimaciel.github.io/sa-evolution-site/sitemap.xml
+Sitemap: https://saevolu.com.br/sitemap.xml
